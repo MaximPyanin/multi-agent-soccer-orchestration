@@ -9,7 +9,7 @@ class WorkflowRouteDecision(str, Enum):
     based on their content and requirements.
     """
 
-    WEB_SEARCH = "search"
-    FOOTBALL_DATA = "stats"
+    WEB_SEARCH = "search_agent"
+    FOOTBALL_DATA = "fotmob_agent"
     COMBINED_APPROACH = "both"
-    DIRECT_CONVERSATION = "conversation"
+    DIRECT_CONVERSATION = "conversational_agent"
