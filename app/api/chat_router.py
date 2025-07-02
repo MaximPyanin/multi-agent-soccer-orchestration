@@ -18,7 +18,7 @@ class ChatRouter:
         Initialize the chat API router.
 
         Args:
-            workflow_orchestrator: Main workflow orchestrator for processing requests
+            graph_builder: Main workflow orchestrator for processing requests
         """
         self._api_router = APIRouter(prefix="/api/v1", tags=["Chat"])
         self._graph_builder = graph_builder
@@ -51,4 +51,4 @@ class ChatRouter:
 
         final_result = await self._graph_builder.execute_workflow(initial_state)
 
-        return {"data": {"answer": final_result.final_answer}}
+        return {"data": {"answer": final_result.get("final_answer")}}

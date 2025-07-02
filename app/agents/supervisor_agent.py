@@ -38,13 +38,13 @@ class SupervisorAgent:
             "You are the SupervisorAgent. Your ONLY task is to analyze if the user's question is about football/soccer and choose the appropriate routing token.\n\n"
             "FOOTBALL TOPICS include: teams, players, matches, scores, leagues, transfers, statistics, fixtures, results, standings, etc.\n\n"
             "ROUTING RULES:\n"
-            "- If question is about football/soccer → output 'stats' or 'search' or 'both'\n"
-            "- If question is NOT about football/soccer → output 'conversation'\n\n"
+            "- If question is about football/soccer → output 'search_agent' or 'fotmob_agent' or 'both'\n"
+            "- If question is NOT about football/soccer → output 'conversational_agent'\n\n"
             f'User question: "{conversation_state.user_question}"\n\n'
             "Available tokens:\n"
-            "conversation — for non-football questions\n"
-            "search — for football web search\n"
-            "stats — for football API data\n"
+            "conversational_agent — for non-football questions\n"
+            "search_agent — for football web search\n"
+            "fotmob_agent — for football API data\n"
             "both — for both football sources\n\n"
             "CRITICAL: Output ONLY the token, nothing else:"
         )
@@ -53,7 +53,6 @@ class SupervisorAgent:
             routing_prompt,
         )
         final_decision = routing_decision.content.strip().lower()
-        print(final_decision, "supervisor decision")
 
         conversation_state.current_route_decision = final_decision
 

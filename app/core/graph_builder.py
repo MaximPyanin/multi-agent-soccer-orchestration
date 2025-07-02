@@ -45,6 +45,7 @@ class GraphBuilder:
         Returns:
             Configured StateGraph instance
         """
+
         self._state_graph.add_node(
             "supervisor", self._agents_controller.get_routing_decision
         )
@@ -57,10 +58,6 @@ class GraphBuilder:
         )
 
         self._state_graph.add_edge(START, "supervisor")
-        self._state_graph.add_edge("supervisor", "search_agent")  ###
-        self._state_graph.add_edge("supervisor", "fotmob_agent")  ###
-        self._state_graph.add_edge("search_agent", "conversational_agent")
-        self._state_graph.add_edge("fotmob_agent", "conversational_agent")
         self._state_graph.add_edge("conversational_agent", END)
 
         return self._state_graph

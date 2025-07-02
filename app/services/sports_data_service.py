@@ -83,7 +83,7 @@ class SportsDataService:
                 f"searchteams.php?t={team_name}"
             )
             teams = [
-                team
+                team.model_dump()
                 for raw_team_data in api_response.get("teams", [])
                 if (team := self._transform_api_data_to_team(raw_team_data)) is not None
             ]

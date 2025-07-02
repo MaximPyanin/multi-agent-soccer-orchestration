@@ -46,12 +46,10 @@ class ConversationResponseAgent:
             Command with the generated response
         """
         formatted_prompt = self._response_template.format(
-                user_question=conversation_state.user_question,
-                context_data=conversation_state.retrieved_context,
-            )
-
+            user_question=conversation_state.user_question,
+            context_data=conversation_state.retrieved_context,
+        )
 
         result = await self._llm.ainvoke(formatted_prompt)
-
 
         return Command(update={"final_answer": result.content})

@@ -68,10 +68,7 @@ class FootballDataAgent:
             "content": json.dumps(result, ensure_ascii=False),
             "tool_call_id": str(uuid.uuid4()),
         }
-
-        final = result.get("output") or msg["content"]
-
         return Command(
-            goto="conversation",
-            update={"retrieved_context": [msg], "final_answer": final},
+            goto="conversational_agent",
+            update={"retrieved_context": [msg]},
         )

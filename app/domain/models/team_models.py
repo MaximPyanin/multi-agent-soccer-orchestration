@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class FootballTeam(BaseModel):
@@ -24,3 +24,15 @@ class FootballTeam(BaseModel):
     facebook_url: str | None = None
     twitter_url: str | None = None
     youtube_url: str | None = None
+
+
+class SearchTeamsInput(BaseModel):
+    """Input schema for team search."""
+
+    team_name: str = Field(description="Name of the team to search for")
+
+
+class GetTeamDetailsInput(BaseModel):
+    """Input schema for team details."""
+
+    team_id: str = Field(description="Unique ID of the team")

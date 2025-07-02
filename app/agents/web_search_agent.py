@@ -40,4 +40,4 @@ class WebSearchAgent:
             "tool_call_id": str(uuid.uuid4()),
         }
 
-        return Command(goto="conversation", update={"retrieved_context": [msg]})
+        return Command(goto="conversational_agent", update={"retrieved_context": [msg]})
